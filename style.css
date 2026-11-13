@@ -1225,3 +1225,4 @@ main{overflow-x:hidden}
 #s-mines.active > .g-strip{margin-top:auto!important}
 #s-mines.active > .grid5{margin-top:0!important;margin-bottom:auto!important}
 #s-mines.active > .dock{margin-top:0!important}
+#s-pvp .pvp-bar{display:none!important}
