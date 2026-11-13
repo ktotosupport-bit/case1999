@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>1999 Case</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tiny5&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1168">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+<div id="stars"></div>
+<div id="fx"></div>
+<div class="crt"></div>
+
+<div id="app">
+  
+  <header class="top">
+    <div class="top-row">
+      <button class="back hidden" id="backBtn">&lt; НАЗАД</button>
+      <div class="bal" id="balBtn" title="Бесплатные очки">
+        <span class="demo-tag">DEMO</span>
+        <span class="bal-ico cur-star"></span><span id="balance">0</span><span class="plus">+</span>
+      </div>
+      <div class="lvl" id="lvlBox">LV <span id="level">1</span></div>
+    </div>
+    <div class="live">
+      <span class="live-tag">LIVE</span>
+      <div class="live-track" id="live"></div>
+    </div>
+  </header>
+
+  <main>
+    
+    <section class="screen active" id="s-home">
+      
+      <div class="promo" id="promo">
+        <div class="promo-track" id="promoTrack">
+          <button class="slide sl-crash" data-go="s-crash">
+            <canvas class="sl-cv" id="homeCv"></canvas>
+            <span class="sl-rk" id="homeRk"><i class="fl"></i><span></span></span>
+            <span class="sl-fx" id="homeFx"></span>
+            <span class="sl-lbl"><span data-px="crashwin"></span>КРАШ</span>
+            <span class="sl-live">LIVE</span>
+            <b class="sl-x" id="homeX">1.00x</b>
+            <small class="sl-sub" id="homeSub">ПРИЁМ СТАВОК</small>
+            <span class="sl-go">ИГРАТЬ ▶</span>
+          </button>
+          <button class="slide sl-case" id="weekCase">
+            <span class="sl-tag">КЕЙС НЕДЕЛИ</span>
+            <b class="sl-name" id="wcName">—</b>
+            <small class="sl-desc" id="wcDesc"></small>
+            <span class="sl-buy"><i class="cur-star"></i><span id="wcPrice">0</span> ▶</span>
+            <span class="sl-fan" id="wcFan"></span>
+          </button>
+          <button class="slide sl-free" id="fcDaily">
+            <span class="sl-tag">БЕСПЛАТНО</span>
+            <b class="sl-name">ЕЖЕДНЕВНЫЙ<br>КЕЙС</b>
+            <small class="sl-desc" id="fcDailyInfo">за подписку на канал</small>
+            <span class="sl-buy" id="fcDailyBtn">ОТКРЫТЬ ▶</span>
+            <span class="sl-fan one"><span data-px="crate"></span></span>
+          </button>
+          <button class="slide sl-free sl-ticket" id="fcTicket">
+            <span class="sl-tag">ЗА ДРУЗЕЙ</span>
+            <b class="sl-name">КЕЙС<br>ДРУЗЕЙ</b>
+            <small class="sl-desc" id="fcTkInfo">тикетов: 0 из 5</small>
+            <span class="sl-buy" id="fcTkBtn">ОТКРЫТЬ ▶</span>
+            <span class="sl-fan one"><span data-px="ticket"></span></span>
+          </button>          <button class="slide sl-bonus" data-go="s-tasks">
+            <span class="sl-tag">БЕСПЛАТНО</span>
+            <b class="sl-name">БОНУС ДНЯ</b>
+            <small class="sl-desc" id="bnDesc">+5 ◆ раз в 24 часа</small>
+            <span class="sl-buy" id="bnBtn">ЗАБРАТЬ ▶</span>
+            <span class="sl-fan one"><span data-px="gift_snakebox"></span></span>
+          </button>
+          <button class="slide sl-tour" id="tourBanner">
+            <span class="sl-tag">ТУРНИР НЕДЕЛИ</span>
+            <b class="sl-name">ТЫ НА <span id="tbPlace">#1</span></b>
+            <small class="sl-desc" id="tbInfo">—</small>
+            <span class="sl-buy">ТАБЛИЦА ▶</span>
+            <span class="sl-fan one"><span data-px="trophy"></span></span>
+          </button>
+        </div>
+        <div class="promo-dots" id="promoDots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="sec-h">ИГРЫ <b>8 РЕЖИМОВ</b></div>
+      <div class="modes tiles">
+        <button class="tile" style="--g:var(--g-cases)" data-go="s-roulette"><span class="t-ico" data-px="cdrom"></span><b>КЕЙСЫ</b><small>ВЫБЕЙ ПОДАРОК</small></button>
+        <button class="tile" style="--g:var(--g-crash)" data-go="s-crash"><i class="t-badge on">LIVE</i><span class="t-ico" data-px="crashwin"></span><b>КРАШ</b><small>УСПЕЙ ЗАБРАТЬ</small></button>
+        <button class="tile" style="--g:var(--g-up)" data-go="s-upgrade"><i class="t-badge">NEW</i><span class="t-ico" data-px="upgrade"></span><b>АПГРЕЙД</b><small>УЛУЧШИ ПОДАРОК</small></button>
+        <button class="tile" style="--g:var(--g-pvp)" data-go="s-pvp"><i class="t-badge">NEW</i><span class="t-ico" data-px="network"></span><b>PVP</b><small>ОБЩИЙ БАНК</small></button>
+        <button class="tile" style="--g:var(--g-mines)" data-go="s-mines"><span class="t-ico" data-px="virus"></span><b>ВИРУСЫ</b><small>ОБОЙДИ ВИРУС</small></button>
+        <button class="tile" style="--g:var(--g-disks)" data-go="s-disks"><span class="t-ico" data-px="floppy"></span><b>ДИСКЕТЫ</b><small>ЛЕЗЬ НАВЕРХ</small></button>
+        <button class="tile" style="--g:var(--g-hack)" data-go="s-hack"><i class="t-badge">NEW</i><span class="t-ico" data-px="cmd"></span><b>ВЗЛОМ</b><small>БОЛЬШЕ / МЕНЬШЕ</small></button>
+        <button class="tile" style="--g:var(--g-coin)" data-go="s-coin"><span class="t-ico" data-px="coin"></span><b>0 / 1</b><small>ОРЁЛ ИЛИ РЕШКА</small></button>
+        <button class="tile" style="--g:var(--g-bag)" data-go="s-profile" id="bagTile"><span class="t-ico" data-px="folder"></span><b>ПОРТФЕЛЬ</b><small id="bagTileInfo">0 ◆</small></button>
+      </div>
+    </section>
+
+    
+    <section class="screen game" id="s-crash" data-game="crash">
+      <h1 class="title">&gt; КРАШ</h1>
+      <div class="panel crash-box" id="crashBox">
+        <div class="crash-sky" id="crashSky"></div>
+        <canvas class="crash-cv" id="crashCv"></canvas>
+        <div class="rocket" id="rocket"><i class="fl"></i><span></span></div>
+        <div class="crash-fx" id="crashFx"></div>
+        <div class="crash-msg" id="crashMsg">СЛЕДУЮЩИЙ РАУНД</div>
+        <div class="crash-x" id="crashX">10.0</div>
+        <div class="crash-sub" id="crashSub">ВЗЛЁТ ЧЕРЕЗ</div>
+        <div class="crash-bar"><i id="crashBar"></i></div>
+        <div class="crash-flash" id="crashFlash"></div>
+      </div>
+      <div class="hist" id="crashHist"></div>
+      <div class="crash-bets"><div class="cb-head" id="cbHead"></div><ul class="cb-list" id="cbList"></ul></div>
+      <div class="dock">
+        <div class="bet hidden" data-bet="crash"></div>
+        <button class="btn big" id="crashBtn">СДЕЛАТЬ СТАВКУ</button>
+      </div>
+    </section>
+
+    
+    <section class="screen game" id="s-mines" data-game="mines">
+      <h1 class="title">&gt; ВИРУСЫ</h1>
+      <div class="grid5" id="minesGrid"></div>
+      <div class="dock">
+      <div class="mines-bar">
+        <div class="seg" id="minesSize">
+          <button data-v="3" class="sel">3×3</button><button data-v="5">5×5</button><button data-v="7">7×7</button>
+        </div>
+      </div>
+      <div class="info-row"><span>МНОЖИТЕЛЬ: <b id="minesX">1.00x</b></span><span>СЛЕД.: <b id="minesNext">—</b></span></div>
+      <div class="mines-set" id="minesSet">—</div>
+      <div class="bet hidden" data-bet="mines"></div>
+      <button class="btn big" id="minesBtn">СДЕЛАТЬ СТАВКУ</button>
+      </div>
+    </section>
+
+    
+    <section class="screen game" id="s-disks" data-game="disks">
+      <h1 class="title">&gt; ДИСКЕТЫ</h1>
+      <div class="tower" id="tower"></div>
+      <div class="dock">
+      <div class="seg dk-mode" id="disksMode">
+        <button data-v="easy" class="sel">ЛЁГКИЙ</button><button data-v="mid">СРЕДНИЙ</button><button data-v="hard">СЛОЖНЫЙ</button><button data-v="hc">ХАРДКОР</button>
+      </div>
+      <div class="bet hidden" data-bet="disks"></div>
+      <button class="btn big" id="disksBtn">СДЕЛАТЬ СТАВКУ</button>
+      </div>
+    </section>
+
+    
+    <section class="screen game" id="s-roulette" data-game="roulette">
+      <h1 class="title">&gt; РУЛЕТКА</h1>
+      
+      <div id="caseList">
+        <div class="case-hint">ВЫБЕРИ КЕЙС</div>
+        <div class="cases" id="cases"></div>
+      </div>
+      
+      <div id="caseView" class="hidden">
+        <div class="case-head">
+          <button class="chip" id="caseBack">‹ КЕЙСЫ</button>
+          <div class="case-name" id="caseName"></div>
+          <button class="chip prize-chip" id="prizesBtn">ПРИЗЫ</button>
+        </div>
+        <div class="reel-wrap">
+          <div class="reel-arrow l"></div>
+          <div class="reels n1" id="reels"></div>
+          <div class="reel-arrow r"></div>
+        </div>
+        <div class="seg" id="spinCount">
+          <button data-v="1" class="sel">1x</button><button data-v="3">3x</button><button data-v="5">5x</button>
+        </div>
+        <button class="btn big" id="spinBtn">ОТКРЫТЬ ЗА <span id="spinCost">100</span> ◆</button>
+      </div>
+    </section>
+
+    
+    <section class="screen game" id="s-coin" data-game="coin">
+      <h1 class="title">&gt; 0 / 1</h1>
+      <div class="coin-stage" id="coinStage">
+        <div class="coin-tilt">
+          <div class="coin" id="coin"><div class="face f0"><span>0</span></div><div class="face f1"><span>1</span></div></div>
+        </div>
+        <div class="coin-shadow"></div>
+        <div class="coin-stats" id="coinStats"></div>
+      </div>
+      <div class="dock">
+        <div class="seg coin-pick" id="coinSide"><button data-v="0" class="sel"><i>0</i>СТАВЛЮ НА 0</button><button data-v="1"><i>1</i>СТАВЛЮ НА 1</button></div>
+        <div class="bet hidden" data-bet="coin"></div>
+        <button class="btn big" id="coinBtn">ПОДБРОСИТЬ · x1.95</button>
+      </div>
+    </section>
+
+    
+    <section class="screen game" id="s-upgrade" data-game="upgrade">
+      <h1 class="title">&gt; АПГРЕЙД</h1>
+      <div class="up-stage">
+        <button class="up-card" id="upFrom"><small>СТАВЛЮ</small><em></em><b>—</b><u></u></button>
+        <div class="up-ring" id="upRing">
+          <svg viewBox="0 0 120 120"><circle class="up-bg" cx="60" cy="60" r="50"/><circle class="up-arc" id="upArc" cx="60" cy="60" r="50"/></svg>
+          <div class="up-ptr" id="upPtr"><i></i></div>
+          <div class="up-pct"><b id="upPct">0%</b><small>ШАНС</small></div>
+        </div>
+        <button class="up-card" id="upTo"><small>ПОЛУЧУ</small><em></em><b>—</b><u></u></button>
+      </div>
+      <div class="up-mults" id="upMults"><button data-m="1.5">×1.5</button><button data-m="2">×2</button><button data-m="3">×3</button><button data-m="5">×5</button><button data-m="10">×10</button></div>
+      <div class="seg" id="upTab"><button data-v="from" class="sel">МОИ ПОДАРКИ</button><button data-v="to">ЦЕЛЬ</button></div>
+      <div class="up-grid" id="upGrid"></div>
+      <div class="dock"><button class="btn big" id="upBtn">ВЫБЕРИ ПОДАРОК</button></div>
+    </section>
+
+    
+    <section class="screen game" id="s-hack" data-game="hack">
+      <h1 class="title">&gt; ВЗЛОМ</h1>
+      <div class="panel term">
+        <div class="term-line">C:\&gt; CRACK.EXE /PASSWORD</div>
+        <div class="code" id="hackCode"></div>
+        <div class="digit" id="hackDigit">5</div>
+        <div class="term-line dimt" id="hackMsg">НАЖМИ «НАЧАТЬ ВЗЛОМ»</div>
+        <div class="hack-log" id="hackLog"></div>
+      </div>
+      <div class="dock">
+      <div class="hl">
+        <button class="hl-btn" id="hackHi" disabled>▲ БОЛЬШЕ<small id="hiX">—</small></button>
+        <button class="hl-btn" id="hackLo" disabled>▼ МЕНЬШЕ<small id="loX">—</small></button>
+      </div>
+      <div class="info-row"><span>МНОЖИТЕЛЬ: <b id="hackX">1.00x</b></span><span>ВЗЛОМАНО: <b id="hackN">0</b>/6</span></div>
+      <div class="jackpot">6 / 6 ЦИФР = <b>ДЖЕКПОТ x1.5</b></div>
+      <div class="bet hidden" data-bet="hack"></div>
+      <button class="btn big" id="hackBtn">НАЧАТЬ ВЗЛОМ</button>
+      </div>
+    </section>
+
+    
+    <section class="screen game" id="s-pvp" data-game="pvp">
+      <h1 class="title">&gt; PVP</h1>
+      <div class="wheel-wrap">
+        <div class="wheel-ptr"></div>
+        <div class="wheel" id="wheel"></div>
+        <div class="wheel-center"><small>БАНК</small><b id="wheelPot">0</b></div>
+      </div>
+      <div class="pvp-status" id="pvpStatus">ПРИЁМ СТАВОК</div>
+      <div class="pvp-bar"><i id="pvpBar"></i></div>
+      <ul class="pvp-list" id="pvpList"></ul>
+      <div class="dock">
+        <div class="bet hidden" data-bet="pvp"></div>
+        <button class="btn big" id="pvpBtn">ВОЙТИ В РАУНД</button>
+      </div>
+    </section>
+
+    
+    <section class="screen" id="s-tasks">
+      <h1 class="title">&gt; БОНУСЫ</h1>
+      <div class="panel task">
+        <div><b>ЕЖЕДНЕВНЫЙ БОНУС</b><small id="dailyInfo">+5 ◆ раз в 24 часа</small></div>
+        <button class="btn sm" id="dailyBtn">ЗАБРАТЬ</button>
+      </div>
+      <div class="panel task">
+        <div><b>ПОСМОТРЕТЬ РЕКЛАМУ</b><small>+10 ◆ за просмотр</small></div>
+        <button class="btn sm" id="adBtn">СМОТРЕТЬ</button>
+      </div>
+      <div class="panel task">
+        <div><b>ПРИГЛАСИТЬ ДРУГА</b><small>+10 ◆ за друга</small></div>
+        <button class="btn sm" id="refBtn">ССЫЛКА</button>
+      </div>
+      <div class="panel task">
+        <div><b>СЫГРАТЬ 10 ИГР</b><small id="t10info">0 / 10</small></div>
+        <button class="btn sm" id="t10Btn">ЗАБРАТЬ</button>
+      </div>
+    </section>
+
+    
+    <section class="screen topup" id="s-topup">
+      <h1 class="title">&gt; ПОПОЛНЕНИЕ</h1>
+      <div class="tp-tabs"><span class="sel"><i class="cur-star"></i>ЗВЁЗДАМИ</span></div>
+      <div class="tp-stage">
+        <div class="tp-row">
+          <button class="tp-step" id="tpMinus" aria-label="Меньше">−</button>
+          <label class="tp-amt"><input id="tpAmt" type="number" inputmode="numeric" value="200" aria-label="Сумма"><i class="cur-star"></i></label>
+          <button class="tp-step" id="tpPlus" aria-label="Больше">+</button>
+        </div>
+        <div class="tp-min">МИНИМАЛЬНОЕ ПОПОЛНЕНИЕ — <b>100 ◆</b></div>
+      </div>
+      <div class="dock">
+        <div class="tp-quick"><button data-add="500">+ 500</button><button data-add="2000">+ 2 000</button><button data-add="5000">+ 5 000</button></div>
+        <button class="btn big" id="tpBtn">ПОПОЛНИТЬ</button>
+      </div>
+    </section>
+    
+    <section class="screen" id="s-leaders">
+      <h1 class="title">&gt; ЛИДЕРЫ</h1>
+      <div class="seg" id="leadMode"><button data-v="top" class="sel">ТОП ИГРОКОВ</button><button data-v="tour">ТУРНИР</button></div>
+      <div class="tour-info hidden" id="tourInfo"></div>
+      <ol class="leaders" id="leaders"></ol>
+    </section>
+
+    
+    <section class="screen" id="s-profile">
+      <div class="title-row"><h1 class="title">&gt; ПРОФИЛЬ</h1><button class="gear" id="gearBtn" aria-label="Настройки"><svg class="pxi" viewBox="0 0 16 16" shape-rendering="crispEdges" fill="currentColor"><rect x="7" y="0" width="1" height="1"/><rect x="8" y="0" width="1" height="1"/><rect x="7" y="1" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="5" y="3" width="1" height="1"/><rect x="6" y="3" width="1" height="1"/><rect x="7" y="3" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/><rect x="9" y="3" width="1" height="1"/><rect x="10" y="3" width="1" height="1"/><rect x="11" y="3" width="1" height="1"/><rect x="12" y="3" width="1" height="1"/><rect x="13" y="3" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="5" y="4" width="1" height="1"/><rect x="6" y="4" width="1" height="1"/><rect x="7" y="4" width="1" height="1"/><rect x="8" y="4" width="1" height="1"/><rect x="9" y="4" width="1" height="1"/><rect x="10" y="4" width="1" height="1"/><rect x="11" y="4" width="1" height="1"/><rect x="12" y="4" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/><rect x="4" y="5" width="1" height="1"/><rect x="5" y="5" width="1" height="1"/><rect x="6" y="5" width="1" height="1"/><rect x="7" y="5" width="1" height="1"/><rect x="8" y="5" width="1" height="1"/><rect x="9" y="5" width="1" height="1"/><rect x="10" y="5" width="1" height="1"/><rect x="11" y="5" width="1" height="1"/><rect x="12" y="5" width="1" height="1"/><rect x="3" y="6" width="1" height="1"/><rect x="4" y="6" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/><rect x="10" y="6" width="1" height="1"/><rect x="11" y="6" width="1" height="1"/><rect x="12" y="6" width="1" height="1"/><rect x="0" y="7" width="1" height="1"/><rect x="1" y="7" width="1" height="1"/><rect x="2" y="7" width="1" height="1"/><rect x="3" y="7" width="1" height="1"/><rect x="4" y="7" width="1" height="1"/><rect x="5" y="7" width="1" height="1"/><rect x="10" y="7" width="1" height="1"/><rect x="11" y="7" width="1" height="1"/><rect x="12" y="7" width="1" height="1"/><rect x="13" y="7" width="1" height="1"/><rect x="14" y="7" width="1" height="1"/><rect x="15" y="7" width="1" height="1"/><rect x="0" y="8" width="1" height="1"/><rect x="1" y="8" width="1" height="1"/><rect x="2" y="8" width="1" height="1"/><rect x="3" y="8" width="1" height="1"/><rect x="4" y="8" width="1" height="1"/><rect x="5" y="8" width="1" height="1"/><rect x="10" y="8" width="1" height="1"/><rect x="11" y="8" width="1" height="1"/><rect x="12" y="8" width="1" height="1"/><rect x="13" y="8" width="1" height="1"/><rect x="14" y="8" width="1" height="1"/><rect x="15" y="8" width="1" height="1"/><rect x="3" y="9" width="1" height="1"/><rect x="4" y="9" width="1" height="1"/><rect x="5" y="9" width="1" height="1"/><rect x="10" y="9" width="1" height="1"/><rect x="11" y="9" width="1" height="1"/><rect x="12" y="9" width="1" height="1"/><rect x="3" y="10" width="1" height="1"/><rect x="4" y="10" width="1" height="1"/><rect x="5" y="10" width="1" height="1"/><rect x="6" y="10" width="1" height="1"/><rect x="7" y="10" width="1" height="1"/><rect x="8" y="10" width="1" height="1"/><rect x="9" y="10" width="1" height="1"/><rect x="10" y="10" width="1" height="1"/><rect x="11" y="10" width="1" height="1"/><rect x="12" y="10" width="1" height="1"/><rect x="3" y="11" width="1" height="1"/><rect x="4" y="11" width="1" height="1"/><rect x="5" y="11" width="1" height="1"/><rect x="6" y="11" width="1" height="1"/><rect x="7" y="11" width="1" height="1"/><rect x="8" y="11" width="1" height="1"/><rect x="9" y="11" width="1" height="1"/><rect x="10" y="11" width="1" height="1"/><rect x="11" y="11" width="1" height="1"/><rect x="12" y="11" width="1" height="1"/><rect x="2" y="12" width="1" height="1"/><rect x="3" y="12" width="1" height="1"/><rect x="4" y="12" width="1" height="1"/><rect x="5" y="12" width="1" height="1"/><rect x="6" y="12" width="1" height="1"/><rect x="7" y="12" width="1" height="1"/><rect x="8" y="12" width="1" height="1"/><rect x="9" y="12" width="1" height="1"/><rect x="10" y="12" width="1" height="1"/><rect x="11" y="12" width="1" height="1"/><rect x="12" y="12" width="1" height="1"/><rect x="13" y="12" width="1" height="1"/><rect x="3" y="13" width="1" height="1"/><rect x="7" y="13" width="1" height="1"/><rect x="8" y="13" width="1" height="1"/><rect x="12" y="13" width="1" height="1"/><rect x="7" y="14" width="1" height="1"/><rect x="8" y="14" width="1" height="1"/><rect x="7" y="15" width="1" height="1"/><rect x="8" y="15" width="1" height="1"/></svg></button></div>
+      <div class="panel prof">
+        <button class="ava" id="ava" aria-label="Рамки аватара"></button>
+        <div class="uname" id="uname">@player</div>
+        <div class="rank" id="rank">ЮЗЕР</div>
+        <small class="frame-tag" id="frameTag"></small>
+        <div class="xpbar"><div id="xpFill"></div></div>
+        <small id="xpTxt">LV 1 · 0 / 10 XP</small>
+        <small class="next-rw" id="nextReward"></small>
+      </div>
+      <div class="stat-chips">
+        <div><b id="pBal">0 ◆</b><small>БАЛАНС</small></div>
+        <div><b id="pBest">0 ◆</b><small>ТОП ВЫИГРЫШ</small></div>
+        <div><b id="pGames">0</b><small>ИГР</small></div>
+      </div>
+
+      <h2 class="sub">ПОРТФЕЛЬ</h2>
+      <div class="panel bag">
+        <div class="bag-head">
+          <span class="bag-ico" data-px="folder"></span>
+          <div><small>СТОИМОСТЬ ПОДАРКОВ</small><b id="bagSum">0 ◆</b></div>
+          <span class="bag-n" id="bagCount">0 шт.</span>
+        </div>
+        <div class="seg bag-view" id="bagView"><button data-v="grid" class="sel">СЕТКА</button><button data-v="list">СПИСОК</button></div>
+        <div class="bag-grid" id="bagGrid"></div>
+        <div class="bag-btns">
+          <button class="btn sm" id="bagSell">ПРОДАТЬ ВСЁ</button>
+          <button class="btn sm ghost-sm" id="bagOut">ВЫВЕСТИ</button>
+        </div>
+      </div>
+
+      <h2 class="sub">ТЕМА</h2>
+      <div class="themes" id="themes">
+        <button data-t="green" style="--c:#4DF28A;--c2:#0B1A12"></button>
+        <button data-t="cyan" style="--c:#5CE1F5;--c2:#0A1820"></button>
+        <button data-t="amber" style="--c:#FFB84D;--c2:#1A140A"></button>
+        <button data-t="red" style="--c:#FF6B7D;--c2:#1C0C11"></button>
+        <button data-t="white" style="--c:#E8E8E8;--c2:#101010"></button>
+        <button data-t="vapor" style="--c:#FF5CD1;--c2:#24113A"></button>
+        <button data-t="bsod" style="--c:#FFFFFF;--c2:#001060"></button>
+        <button data-t="gameboy" style="--c:#9BBC0F;--c2:#0F380F"></button>
+      </div>
+
+      <h2 class="sub">ДОСТИЖЕНИЯ <span id="achCount"></span></h2>
+      <div class="ach-grid" id="achGrid"></div>
+
+    </section>
+  </main>
+
+  <nav class="nav">
+    <button class="active" data-tab="s-home"><span data-px="mycomp"></span>РЕЖИМЫ</button>
+    <button data-tab="s-tasks"><span data-px="mail"></span>БОНУСЫ<i class="badge" id="taskBadge">1</i></button>
+    <button data-tab="s-leaders"><span data-px="trophy"></span>ЛИДЕРЫ</button>
+    <button data-tab="s-profile" id="navProfile"><span data-px="user"></span>ПРОФИЛЬ</button>
+  </nav>
+</div>
+
+
+
+<div class="sheet hidden" id="minesSheet">
+  <div class="sheet-box">
+    <button class="sheet-x" id="msClose" aria-label="Закрыть">×</button>
+    <h2>НОВАЯ СТАВКА</h2>
+    <div class="ms-bal">БАЛАНС: <b id="msBal">0</b> ◆</div>
+    <label class="ms-amt"><input id="msAmt" type="number" inputmode="numeric"><span>◆</span></label>
+    <div class="ms-add"><button data-add="100">+100</button><button data-add="500">+500</button><button data-add="2500">+2 500</button><button data-add="0">СБРОС</button></div>
+    <small class="ms-range">ОТ 100 ДО 10 000 ◆</small>
+    <div class="ms-card">
+      <div class="ms-row"><b>КОЛИЧЕСТВО ВИРУСОВ</b><span class="ms-cnt" id="msCount">1</span></div>
+      <small>Чем больше вирусов, тем быстрее растёт множитель, но и выше риск.</small>
+      <input type="range" id="msSlider" min="1" max="8" value="1">
+      <div class="ms-row ms-mini"><span id="msMin">1</span><span>ПЕРВЫЙ КЛЮЧ: <b id="msFirst">1.09x</b></span><span id="msMax">8</span></div>
+    </div>
+    <button class="btn big" id="msGo">ОТПРАВИТЬ СТАВКУ</button>
+  </div>
+</div>
+
+
+<div class="sheet hidden" id="betSheet">
+  <div class="sheet-box">
+    <button class="sheet-x" id="bsClose" aria-label="Закрыть">×</button>
+    <h2 id="bsTitle">НОВАЯ СТАВКА</h2>
+    <div class="ms-bal">БАЛАНС: <b id="bsBal">0</b> ◆</div>
+    <label class="ms-amt"><input id="bsAmt" type="number" inputmode="numeric"><span>◆</span></label>
+    <div class="ms-add" id="bsAdd"><button data-add="100">+100</button><button data-add="500">+500</button><button data-add="2500">+2 500</button><button data-add="0">СБРОС</button></div>
+    <small class="ms-range" id="bsRange"></small>
+    <div class="ms-card" id="bsCard"></div>
+    <button class="btn big" id="bsGo">ОТПРАВИТЬ СТАВКУ</button>
+  </div>
+</div>
+
+
+
+<div class="sheet hidden" id="setSheet">
+  <div class="sheet-box set-box">
+    <button class="sheet-x" id="setClose" aria-label="Закрыть">×</button>
+    <h2>НАСТРОЙКИ</h2>
+    <h2 class="sub">ЗВУК И ЭКРАН</h2>
+    <div class="panel settings" id="settings">
+      <button class="tgl" data-s="snd"><span>Звук</span><i></i></button>
+      <button class="tgl" data-s="vib"><span>Вибрация</span><i></i></button>
+      <button class="tgl" data-s="anim"><span>Анимации и эффекты</span><i></i></button>
+      <button class="tgl" data-s="demo"><span>Демо-режим</span><i></i></button>
+    </div>
+    <button class="btn ghost" id="tutBtn">ПРОЙТИ ОБУЧЕНИЕ ЗАНОВО</button>
+  </div>
+</div>
+
+<div class="modal hidden" id="modal">
+  <div class="modal-box">
+    <h2 id="mTitle"></h2>
+    <div id="mBody"></div>
+    <button class="btn" id="mOk">ПОНЯТНО</button>
+  </div>
+</div>
+
+
+<div class="tut hidden" id="tut">
+  <div class="tut-hole" id="tutHole"></div>
+  <div class="tut-box" id="tutBox">
+    <p id="tutText"></p>
+    <div class="tut-nav">
+      <span class="tut-dots" id="tutDots"></span>
+      <button class="tut-skip" id="tutSkip">ПРОПУСТИТЬ</button>
+      <button class="btn sm" id="tutNext">ДАЛЕЕ</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="boot"><pre id="bootTxt"></pre></div>
+
+<div class="toast" id="toast"></div>
+<script src="icons.js?v=1168"></script>
+<script src="app.js?v=1168"></script>
+</body>
+</html>
