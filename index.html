@@ -6,7 +6,7 @@
 <title>1999 Case</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tiny5&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1168">
+<link rel="stylesheet" href="style.css?v=1170">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
@@ -111,10 +111,11 @@
         <div class="crash-sub" id="crashSub">ВЗЛЁТ ЧЕРЕЗ</div>
         <div class="crash-bar"><i id="crashBar"></i></div>
         <div class="crash-flash" id="crashFlash"></div>
+        <div class="hist" id="crashHist"></div>
       </div>
-      <div class="hist" id="crashHist"></div>
       <div class="crash-bets"><div class="cb-head" id="cbHead"></div><ul class="cb-list" id="cbList"></ul></div>
       <div class="dock">
+        <div class="cb-auto" id="crashAuto"></div>
         <div class="bet hidden" data-bet="crash"></div>
         <button class="btn big" id="crashBtn">СДЕЛАТЬ СТАВКУ</button>
       </div>
@@ -123,15 +124,14 @@
     
     <section class="screen game" id="s-mines" data-game="mines">
       <h1 class="title">&gt; ВИРУСЫ</h1>
+      <div class="info-row g-strip"><span>МНОЖИТЕЛЬ: <b id="minesX">1.00x</b></span><span id="minesSet">—</span><span>СЛЕД.: <b id="minesNext">—</b></span></div>
       <div class="grid5" id="minesGrid"></div>
       <div class="dock">
       <div class="mines-bar">
-        <div class="seg" id="minesSize">
-          <button data-v="3" class="sel">3×3</button><button data-v="5">5×5</button><button data-v="7">7×7</button>
+        <div class="seg sub-seg" id="minesSize">
+          <button data-v="3" class="sel">3×3<small>1–8 вирусов</small></button><button data-v="5">5×5<small>3–24 вируса</small></button><button data-v="7">7×7<small>5–48 вирусов</small></button>
         </div>
       </div>
-      <div class="info-row"><span>МНОЖИТЕЛЬ: <b id="minesX">1.00x</b></span><span>СЛЕД.: <b id="minesNext">—</b></span></div>
-      <div class="mines-set" id="minesSet">—</div>
       <div class="bet hidden" data-bet="mines"></div>
       <button class="btn big" id="minesBtn">СДЕЛАТЬ СТАВКУ</button>
       </div>
@@ -142,8 +142,8 @@
       <h1 class="title">&gt; ДИСКЕТЫ</h1>
       <div class="tower" id="tower"></div>
       <div class="dock">
-      <div class="seg dk-mode" id="disksMode">
-        <button data-v="easy" class="sel">ЛЁГКИЙ</button><button data-v="mid">СРЕДНИЙ</button><button data-v="hard">СЛОЖНЫЙ</button><button data-v="hc">ХАРДКОР</button>
+      <div class="seg dk-mode sub-seg" id="disksMode">
+        <button data-v="easy" class="sel">ЛЁГКИЙ<small>битых 1 из 4</small></button><button data-v="mid">СРЕДНИЙ<small>битых 1 из 3</small></button><button data-v="hard">СЛОЖНЫЙ<small>битых 1 из 2</small></button><button data-v="hc">ХАРДКОР<small>битых 2 из 3</small></button>
       </div>
       <div class="bet hidden" data-bet="disks"></div>
       <button class="btn big" id="disksBtn">СДЕЛАТЬ СТАВКУ</button>
@@ -216,6 +216,7 @@
     <section class="screen game" id="s-hack" data-game="hack">
       <h1 class="title">&gt; ВЗЛОМ</h1>
       <div class="panel term">
+        <div class="info-row g-strip"><span>МНОЖИТЕЛЬ: <b id="hackX">1.00x</b></span><span>ВЗЛОМАНО: <b id="hackN">0</b>/6</span><span class="jp">6/6 = <b>ДЖЕКПОТ ×1.5</b></span></div>
         <div class="term-line">C:\&gt; CRACK.EXE /PASSWORD</div>
         <div class="code" id="hackCode"></div>
         <div class="digit" id="hackDigit">5</div>
@@ -227,8 +228,6 @@
         <button class="hl-btn" id="hackHi" disabled>▲ БОЛЬШЕ<small id="hiX">—</small></button>
         <button class="hl-btn" id="hackLo" disabled>▼ МЕНЬШЕ<small id="loX">—</small></button>
       </div>
-      <div class="info-row"><span>МНОЖИТЕЛЬ: <b id="hackX">1.00x</b></span><span>ВЗЛОМАНО: <b id="hackN">0</b>/6</span></div>
-      <div class="jackpot">6 / 6 ЦИФР = <b>ДЖЕКПОТ x1.5</b></div>
       <div class="bet hidden" data-bet="hack"></div>
       <button class="btn big" id="hackBtn">НАЧАТЬ ВЗЛОМ</button>
       </div>
@@ -244,7 +243,7 @@
       </div>
       <div class="pvp-status" id="pvpStatus">ПРИЁМ СТАВОК</div>
       <div class="pvp-bar"><i id="pvpBar"></i></div>
-      <ul class="pvp-list" id="pvpList"></ul>
+      <div class="crash-bets pvp-box"><div class="cb-head" id="pvpHead"></div><ul class="pvp-list" id="pvpList"></ul></div>
       <div class="dock">
         <div class="bet hidden" data-bet="pvp"></div>
         <button class="btn big" id="pvpBtn">ВОЙТИ В РАУНД</button>
@@ -432,7 +431,7 @@
 <div id="boot"><pre id="bootTxt"></pre></div>
 
 <div class="toast" id="toast"></div>
-<script src="icons.js?v=1168"></script>
-<script src="app.js?v=1168"></script>
+<script src="icons.js?v=1170"></script>
+<script src="app.js?v=1170"></script>
 </body>
 </html>
