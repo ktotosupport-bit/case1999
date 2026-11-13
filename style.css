@@ -1270,3 +1270,12 @@ body{background-color:var(--bg0)!important;
 .tile{gap:8px!important}
 .tile b{font-size:clamp(15px,4.2vw,18px)!important;letter-spacing:.5px}
 .tile small{font-size:clamp(10px,2.8vw,12px)!important;color:#9AA5A0!important;max-width:96%!important}
+.btn.cash{--c:var(--acc)!important;color:var(--ink)!important}
+.btn.cash:disabled{animation:none}
+#s-hack .panel.term > *{flex-shrink:0}
+#s-home .tile{container-type:size}
+#s-home .t-ico{width:min(clamp(46px,13vw,56px),40cqh)!important;height:min(clamp(46px,13vw,56px),40cqh)!important}
+#s-home .tile{gap:min(8px,4cqh)!important}
+#s-home .tile b{font-size:min(clamp(15px,4.2vw,18px),14cqh)!important}
+#s-home .tile small{font-size:min(clamp(10px,2.8vw,12px),10cqh)!important}
+#s-home .t-badge{z-index:2;top:5px;right:5px;font-size:9px;padding:2px 4px}
