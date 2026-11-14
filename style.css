@@ -1317,6 +1317,92 @@ body{background-color:var(--bg0)!important;
 .btn.ghost-sm:disabled{color:var(--dim)!important;border-color:var(--line)!important}
 .sheet > *{max-height:calc(100dvh - 12px - var(--tg-safe-area-inset-top,0px) - var(--tg-content-safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
 .task > .btn.sm{min-width:100px;flex-shrink:0;justify-content:center;text-align:center}
+.rocket.gl{width:124px;height:89px;transform:translate(-68%,-56%) rotate(var(--rot,0deg))}
+.rocket.gl .fl{display:none}
+.rocket.gl span{filter:drop-shadow(0 0 10px rgba(124,255,77,.35))}
+.rocket.gl img{display:block;width:100%;height:100%;-webkit-user-drag:none;user-select:none}
+.crash-box[data-phase="wait"] .rocket.gl span{animation:glbob 1.6s ease-in-out infinite}
+@keyframes glbob{50%{transform:translateY(-6px) rotate(-2deg)}}
+.crash-box.ignite .rocket.gl span{animation:ignite .08s linear infinite}
+.crash-box[data-phase="fly"] .rocket.gl span{animation:glfly .12s steps(2) infinite}
+@keyframes glfly{0%{transform:translate(0,0)}50%{transform:translate(-1px,1px)}100%{transform:translate(1px,0)}}
+.crash-box[data-phase="fly"] .rocket.gl.win span{animation:glwin .42s ease-in-out infinite}
+@keyframes glwin{0%,100%{transform:translateY(0) rotate(0)}40%{transform:translateY(-7px) rotate(-3deg)}70%{transform:translateY(-2px) rotate(1deg)}}
+.crash-box[data-phase="crashed"] .rocket.gl{opacity:1;animation:glcrash 1.5s cubic-bezier(.45,0,.7,.4) forwards}
+@keyframes glcrash{
+  0%{transform:translate(-68%,-56%) rotate(var(--rot,0deg)) scale(1)}
+  8%{transform:translate(-64%,-62%) rotate(calc(var(--rot,0deg) - 10deg)) scale(1.12)}
+  16%{transform:translate(-72%,-54%) rotate(calc(var(--rot,0deg) + 6deg)) scale(1.06)}
+  100%{transform:translate(-56%,60%) rotate(calc(var(--rot,0deg) + 48deg)) scale(.86);opacity:0}}
+body.calm .rocket.gl span,body.calm .crash-box[data-phase="crashed"] .rocket.gl{animation:none!important}
+.sl-rk.gl{width:78px!important;height:56px!important}
+.sl-rk.gl .fl{display:none}
+.sl-rk.gl>span{filter:drop-shadow(0 0 8px rgba(124,255,77,.35))}
+.sl-rk.gl img{display:block;width:100%;height:100%}
+.sl-crash[data-phase="crashed"] .sl-rk.gl{opacity:1}
+.sl-crash[data-phase="crashed"] .sl-rk.gl>span{animation:glfall 1.3s ease-in forwards}
+@keyframes glfall{0%{transform:none}12%{transform:translate(2px,-4px) rotate(-8deg) scale(1.1)}100%{transform:translate(10px,60px) rotate(40deg) scale(.85);opacity:0}}
+body.calm .sl-rk.gl>span{animation:none!important}
+.crash-box.glm .rocket.gl{width:150px;height:108px;transform:translate(-50%,-50%) rotate(var(--rot,0deg))}
+.crash-box.glm[data-phase="crashed"] .rocket.gl{animation:glcrashc 1.5s cubic-bezier(.45,0,.7,.4) forwards}
+@keyframes glcrashc{
+  0%{transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(1)}
+  6%{transform:translate(-48%,-54%) rotate(calc(var(--rot,0deg) - 8deg)) scale(1.22)}
+  24%{transform:translate(-48%,-54%) rotate(calc(var(--rot,0deg) - 8deg)) scale(1.18)}
+  34%{transform:translate(-52%,-46%) rotate(calc(var(--rot,0deg) + 8deg)) scale(1.08)}
+  100%{transform:translate(-40%,90%) rotate(calc(var(--rot,0deg) + 52deg)) scale(.84);opacity:0}}
+body.calm .crash-box.glm[data-phase="crashed"] .rocket.gl{animation:none}
+.crash-box.glm[data-phase="wait"] .rocket.gl{opacity:0}
+.crash-box.glm.ignite .rocket.gl{animation:glin .35s ease-out}
+@keyframes glin{from{transform:translate(-120%,-20%) rotate(var(--rot,0deg)) scale(.5);opacity:0}}
+.crash-box.glm .crash-x{transition:top .3s,font-size .3s}
+.crash-box.glm[data-phase="wait"] .crash-x{top:26%;font-size:72px}
+.crash-box.glm[data-phase="wait"] .crash-sub{top:calc(26% + 84px)}
+.crash-box.glm:not([data-phase="wait"]) .crash-x{top:34px;font-size:30px}
+.crash-box.glm:not([data-phase="wait"]) .crash-sub,.crash-box.glm:not([data-phase="wait"]) .crash-msg{display:none}
+.crash-box.glm .crash-sky i{width:16px;height:2px}
+.crash-box.glm .crash-sky.fly i{animation:glstream calc(.6s - var(--heat,0) * .35s) linear infinite}
+@keyframes glstream{to{transform:translate(-460px,70px)}}
+body.calm .crash-box.glm .crash-sky.fly i{animation:none}
+.rocket.gl span,.sl-rk.gl>span{position:relative}
+.rocket.gl img,.sl-rk.gl img,.cut-rk img{position:absolute;inset:0;width:100%;height:100%;display:block;-webkit-user-drag:none;user-select:none}
+.rocket.gl span{filter:drop-shadow(0 0 10px color-mix(in srgb,var(--acc) 35%,transparent))}
+.sl-rk.gl>span{filter:drop-shadow(0 0 8px color-mix(in srgb,var(--acc) 35%,transparent))}
+.glf{transform-origin:38% 62%}
+.rocket.gl .glf,.sl-rk.gl .glf{animation:glflame .21s steps(1) infinite}
+@keyframes glflame{0%{transform:scale(1,1)}33%{transform:scale(1.14,.9);filter:brightness(1.25)}66%{transform:scale(.9,1.08)}}
+.crash-box[data-phase="wait"] .rocket.gl .glf,.sl-crash[data-phase="wait"] .sl-rk.gl .glf{animation:glidle .36s steps(1) infinite}
+@keyframes glidle{0%{transform:scale(.62,.8);opacity:.85}50%{transform:scale(.7,.72);opacity:.7}}
+.crash-box[data-phase="fly"] .rocket.gl.win .glf{animation-duration:.14s}
+.crash-cut{position:absolute;inset:0;z-index:6;pointer-events:none;opacity:0;overflow:hidden;
+  background:radial-gradient(circle at 46% 62%,color-mix(in srgb,var(--acc) 16%,#000) 0,#000 72%)}
+.crash-box.ignite .crash-cut{animation:cutbg 1.7s linear forwards}
+@keyframes cutbg{0%{opacity:0}12%{opacity:1}86%{opacity:1}100%{opacity:0}}
+.cut-lines{position:absolute;inset:-30% -60%;opacity:.55;
+  background:repeating-linear-gradient(152deg,transparent 0 22px,color-mix(in srgb,var(--acc) 45%,transparent) 22px 24px,transparent 24px 58px)}
+.crash-box.ignite .cut-lines{animation:cutlines .22s linear infinite}
+@keyframes cutlines{to{transform:translate(-56px,30px)}}
+.cut-rk{position:absolute;left:50%;top:56%;width:232px;height:167px;margin:-84px 0 0 -116px;filter:drop-shadow(0 0 16px color-mix(in srgb,var(--acc) 45%,transparent))}
+.crash-box.ignite .cut-rk{animation:cutrk 1.7s cubic-bezier(.55,0,.75,.2) forwards}
+@keyframes cutrk{0%{transform:translate(-60px,70px) scale(.7)}16%{transform:translate(-36px,40px) scale(.96)}58%{transform:translate(-12px,12px) scale(1.04)}78%{transform:translate(14px,-8px) scale(1.08)}100%{transform:translate(420px,-300px) scale(.5)}}
+.crash-box.ignite .cut-rk .glb{animation:ignite .07s linear infinite}
+.crash-box.ignite .cut-rk .glf{animation:cutflame .09s steps(2) infinite}
+@keyframes cutflame{0%{transform:scale(1.3,1.05)}50%{transform:scale(1.6,.9)}100%{transform:scale(1.42,1.12)}}
+.cut-txt{position:absolute;left:0;right:0;top:14%;text-align:center;font-family:Tiny5,var(--term),monospace;font-weight:400;font-size:30px;letter-spacing:6px;
+  color:var(--acc);text-shadow:0 0 16px var(--acc);opacity:0}
+.crash-box.ignite .cut-txt{animation:cuttxt 1.7s steps(1) forwards}
+@keyframes cuttxt{0%{opacity:0}16%{opacity:1}24%{opacity:.25}28%{opacity:1}80%{opacity:1}88%{opacity:0}}
+.crash-box.boomcut{animation:boomglitch .4s steps(6)}
+@keyframes boomglitch{0%{transform:none}17%{transform:translate(-5px,2px) skewX(3deg)}34%{transform:translate(4px,-2px)}50%{transform:translate(-3px,1px) skewX(-3deg)}67%{transform:translate(3px,0)}84%{transform:translate(-1px,1px)}100%{transform:none}}
+.crash-box.boomcut .rocket.gl span{filter:drop-shadow(-5px 0 #FF2E6A) drop-shadow(5px 0 #2EE6FF)}
+@keyframes glcrash{
+  0%{transform:translate(-68%,-56%) rotate(var(--rot,0deg)) scale(1)}
+  6%{transform:translate(-66%,-60%) rotate(calc(var(--rot,0deg) - 8deg)) scale(1.22)}
+  24%{transform:translate(-66%,-60%) rotate(calc(var(--rot,0deg) - 8deg)) scale(1.18)}
+  34%{transform:translate(-70%,-52%) rotate(calc(var(--rot,0deg) + 8deg)) scale(1.08)}
+  100%{transform:translate(-56%,64%) rotate(calc(var(--rot,0deg) + 52deg)) scale(.84);opacity:0}}
+body.calm .crash-cut,body.calm .crash-cut *,body.calm .crash-box.boomcut,body.calm .glf{animation:none!important}
+body.calm .crash-box.ignite .crash-cut{opacity:0}
 .coin-stage.wait .coin-tilt{animation:coinWait .35s ease-in-out infinite alternate}
 @keyframes coinWait{to{transform:translateY(-8px)}}
 body.calm .coin-stage.wait .coin-tilt{animation:none}
