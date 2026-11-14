@@ -1563,22 +1563,17 @@ body.typing .sheet .ms-range{display:none}
 #s-upgrade{--g:var(--g-up);--g2:#FF4F8E}
 #s-hack{--g:var(--g-hack);--g2:#2FD6FF}
 #s-pvp{--g:var(--g-pvp);--g2:#B76BFF}
-.screen.game::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
-  radial-gradient(95% 45% at 100% 0%,color-mix(in srgb,var(--g) 26%,transparent),transparent 72%),
-  radial-gradient(85% 40% at 0% 100%,color-mix(in srgb,var(--g2) 20%,transparent),transparent 72%)}
 .screen.game .ghead .title{color:var(--g)!important;text-shadow:0 0 14px color-mix(in srgb,var(--g) 55%,transparent)}
 .screen.game .chip{border-color:color-mix(in srgb,var(--g) 38%,var(--line))!important;color:color-mix(in srgb,var(--g) 70%,var(--txt))}
 .screen.game .info-row b,.screen.game .g-strip b{color:var(--g)}
 .screen.game .seg button.sel{background:linear-gradient(135deg,color-mix(in srgb,var(--g) 24%,var(--bg1)),color-mix(in srgb,var(--g2) 14%,var(--bg1)))!important;
-  border-color:var(--g)!important;color:var(--g)!important;box-shadow:0 0 14px color-mix(in srgb,var(--g) 25%,transparent)!important}
+  border-color:var(--g)!important;color:var(--g)!important}
 .screen.game .seg button:not(.sel){border-color:color-mix(in srgb,var(--g) 16%,var(--line))!important}
 :where(.screen.game) .cell{border-color:color-mix(in srgb,var(--g) 24%,var(--line));
   background:linear-gradient(160deg,color-mix(in srgb,var(--g) 10%,var(--bg2)),color-mix(in srgb,var(--g2) 6%,var(--bg1)))}
 .screen.game .panel,.screen.game .term,.screen.game .tower,.screen.game .up-stage,.screen.game .wheel-wrap,.screen.game .crash-bets{
-  border-color:color-mix(in srgb,var(--g) 32%,var(--line))!important;box-shadow:0 0 22px color-mix(in srgb,var(--g) 10%,transparent),inset 0 0 26px color-mix(in srgb,var(--g) 6%,transparent)}
-.screen.game .dock .btn.big,.screen.game > .btn.big{--c:var(--g);
-  background:linear-gradient(100deg,color-mix(in srgb,var(--g) 88%,#fff),var(--g) 45%,color-mix(in srgb,var(--g2) 80%,var(--g)))!important;
-  box-shadow:0 var(--h) 0 color-mix(in srgb,var(--g) 40%,#000),0 0 18px color-mix(in srgb,var(--g) 35%,transparent)!important}
+  border-color:color-mix(in srgb,var(--g) 32%,var(--line))!important}
+.screen.game .dock .btn.big,.screen.game > .btn.big{--c:var(--g);background:var(--g)!important;box-shadow:0 var(--h) 0 color-mix(in srgb,var(--g) 45%,#000)!important}
 .screen.game .bet button{border-color:color-mix(in srgb,var(--g) 22%,var(--line))}
 body{background-image:
   radial-gradient(120% 70% at 50% 0%,color-mix(in srgb,var(--acc) 9%,transparent),transparent 60%),
@@ -1596,6 +1591,12 @@ html body[data-theme="lux"]{--bg0:#0C0905;--bg1:#18120A;--bg2:#241B10;--line:#4A
 .themes button[data-t="aurora"]{background:linear-gradient(135deg,#3DFFB5,#2FD6FF 55%,#6B7BFF)!important}
 .themes button[data-t="cyber"]{background:linear-gradient(135deg,#FF3EA5,#2FE6FF 60%,#FFE94D)!important}
 .themes button[data-t="lux"]{background:linear-gradient(135deg,#FFE58A,#FFD24D 40%,#B57BFF)!important}
+.crash-box.alm .crash-sky i{visibility:hidden}
+.crash-box.alm[data-phase="fly"] .crash-sky.fly i{visibility:visible}
+#s-hack .term .g-strip{border-bottom:0!important;padding-bottom:10px!important;
+  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--g) 55%,transparent) 20%,color-mix(in srgb,var(--g) 55%,transparent) 80%,transparent) bottom/100% 2px no-repeat!important}
+#s-hack .hack-log{border-top:0!important;
+  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--g) 40%,transparent) 20%,color-mix(in srgb,var(--g) 40%,transparent) 80%,transparent) top/100% 2px no-repeat}
 .coin-stage.wait .coin-tilt{animation:coinWait .35s ease-in-out infinite alternate}
 @keyframes coinWait{to{transform:translateY(-8px)}}
 body.calm .coin-stage.wait .coin-tilt{animation:none}
