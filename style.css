@@ -1256,7 +1256,7 @@ body{background-color:var(--bg0)!important;
 .tile{border-width:1px!important;border-color:var(--line)!important;overflow:hidden;
   background:radial-gradient(58% 44% at 50% 34%,color-mix(in srgb,var(--g) 24%,transparent),transparent 76%),var(--bg1)!important;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 10px 22px rgba(0,0,0,.38)!important}
-.tile::before{content:"";position:absolute;left:22%;right:22%;top:0;height:2px;border-radius:0 0 2px 2px;
+.tile::before{display:none;content:"";position:absolute;left:22%;right:22%;top:0;height:2px;border-radius:0 0 2px 2px;
   background:var(--g);box-shadow:0 0 10px var(--g);opacity:.85}
 .tile b{text-shadow:none!important}
 .slide{border-width:1px!important}
@@ -1416,7 +1416,7 @@ body.calm .crash-box.ignite .crash-cut{opacity:0}
 @keyframes alwin{0%,100%{transform:translateY(0) scale(1)}45%{transform:translateY(-9px) scale(1.04,.97)}}
 .crash-box.alm[data-phase="crashed"] .rocket.al{opacity:1;animation:none}
 .crash-box.alm[data-phase="crashed"] .rocket.al span{animation:aljump .62s infinite}
-@keyframes aljump{0%{transform:translateY(0);animation-timing-function:cubic-bezier(.2,.6,.4,1)}42%{transform:translateY(-28px);animation-timing-function:cubic-bezier(.6,0,.8,.4)}80%,100%{transform:translateY(0)}}
+@keyframes aljump{0%{transform:translateY(0);animation-timing-function:cubic-bezier(.2,.6,.4,1)}42%{transform:translateY(-12px);animation-timing-function:cubic-bezier(.6,0,.8,.4)}80%,100%{transform:translateY(0)}}
 @keyframes alcrash{
   0%{transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(1)}
   5%{transform:translate(-50%,-54%) scale(1.12)}
@@ -1428,9 +1428,9 @@ body.calm .crash-box.ignite .crash-cut{opacity:0}
 .crash-box.alm .crash-sky.fly i{animation:alstream calc(.55s - var(--heat,0) * .33s) linear infinite;height:calc(14px + var(--heat,0) * 22px)}
 @keyframes alstream{from{transform:translateY(-60px)}to{transform:translateY(420px)}}
 body.calm .rocket.al span,body.calm .crash-box.alm[data-phase="crashed"] .rocket.al,body.calm .crash-box.alm .crash-sky.fly i{animation:none!important}
-.sl-rk.al{width:72px!important;height:62px!important}
-.rocket.al .alb,.sl-rk.al .alb{display:block;position:relative;width:100%;height:100%;filter:saturate(1.35)}
-.rocket.al .alg{position:absolute;inset:0;filter:saturate(1.35);opacity:0;pointer-events:none}
+.sl-rk.al{width:104px!important;height:89px!important}
+.rocket.al .alb,.sl-rk.al .alb{display:block;position:relative;width:100%;height:100%}
+.rocket.al .alg{position:absolute;inset:0;opacity:0;pointer-events:none;will-change:transform,opacity}
 .rocket.al .alx,.sl-rk.al .alx{position:absolute;inset:0;opacity:0;pointer-events:none}
 .sl-rk.al>span{position:relative}
 .crash-box[data-phase="fly"] .rocket.al .alg{animation:alecho .6s linear infinite}
@@ -1439,7 +1439,7 @@ body.calm .rocket.al span,body.calm .crash-box.alm[data-phase="crashed"] .rocket
 @keyframes alecho{0%{transform:translateY(2px) scale(.99);opacity:.42}100%{transform:translateY(70px) scale(.84);opacity:0}}
 body.calm .rocket.al .alg{display:none}
 .crash-box.alm .crash-sky{overflow:hidden}
-.al-px{position:absolute;left:0;right:0;bottom:0;pointer-events:none;background-repeat:repeat;image-rendering:pixelated;image-rendering:crisp-edges}
+.al-px{position:absolute;left:0;right:0;bottom:0;pointer-events:none;background-repeat:repeat;image-rendering:pixelated;image-rendering:crisp-edges;will-change:transform}
 .al-px.bn{top:-320px;animation:alpx320 44s steps(80) infinite}
 .al-px.b1{top:-360px;opacity:.9;animation:alpx360 16s steps(90) infinite}
 .al-px.b2{top:-360px;animation:alpx360 6.5s steps(90) infinite}
@@ -1447,25 +1447,56 @@ body.calm .rocket.al .alg{display:none}
 @keyframes alpx360{to{transform:translateY(360px)}}
 .al-px.bp{left:12%;right:auto;bottom:auto;top:-110px;width:104px;height:104px;background-repeat:no-repeat;animation:alplanet 34s steps(170) infinite}
 @keyframes alplanet{0%{transform:translateY(0)}60%,100%{transform:translateY(680px)}}
-.crash-box.alm[data-phase="crashed"] .al-px{animation-play-state:paused}
+.al-px.red{opacity:0;transition:opacity .36s steps(4);animation-play-state:paused}   
+.al-px.rbase{top:0;background:#090205;
+  background-image:radial-gradient(55% 60% at 50% 55%,rgba(150,10,30,.2),transparent 70%)}
+.al-px.b1.red{animation-duration:26s}.al-px.b2.red{animation-duration:12s}.al-px.bn.red{animation-duration:60s}
+.al-px:not(.red){transition:opacity .36s steps(4)}
+.crash-box.alm[data-phase="crashed"] .al-px.red{opacity:1;animation-play-state:running}
+.crash-box.alm[data-phase="crashed"] .al-px:not(.red){opacity:0;animation-play-state:paused}
 body.calm .al-px{animation:none!important}
 .crash-box.alm .rocket.al{z-index:3}
-.rocket.al .alv{position:absolute;right:8%;top:-6%;width:36px;height:36px;background-size:100% 100%;image-rendering:pixelated;opacity:0;pointer-events:none}
-.crash-box.alm[data-phase="crashed"] .rocket.al .alv{opacity:1;animation:alvein .4s steps(2) infinite}
-@keyframes alvein{0%{transform:scale(1)}50%{transform:scale(1.25)}}
-body.calm .rocket.al .alv{animation:none}.sl-rk.al .fl{display:none}
+.crash-box.alm::after{background:radial-gradient(70% 70% at 50% 50%,color-mix(in srgb,var(--bad) 10%,transparent),transparent 75%)}
+.crash-box.alm[data-phase="crashed"]::after{animation:redglow 1.2s ease-in-out infinite}
+.sl-rk.al .fl{display:none}
 .sl-rk.al>span{filter:none}
 .sl-crash[data-phase="crashed"] .sl-rk.al{opacity:1}
 .sl-crash[data-phase="crashed"] .sl-rk.al>span{animation:aljumps .52s cubic-bezier(.3,0,.5,1) infinite}
-@keyframes aljumps{0%,100%{transform:translateY(0)}45%{transform:translateY(-12px)}}
+@keyframes aljumps{0%,100%{transform:translateY(0)}45%{transform:translateY(-7px)}}
 @keyframes alfall{0%,50%{transform:none}100%{transform:translateY(70px);opacity:0}}
 body.calm .sl-rk.al>span{animation:none!important}
 .rocket.al.alpop .alb{animation:alpop .5s steps(10)}
-@keyframes alpop{0%{transform:scale(1);filter:saturate(1.35) brightness(1)}15%{transform:scale(1.28);filter:saturate(1.35) brightness(3.2)}35%{transform:scale(.88);filter:saturate(1.35) brightness(1.6)}60%{transform:scale(1.08)}100%{transform:scale(1);filter:saturate(1.35) brightness(1)}}
+@keyframes alpop{0%{transform:scale(1);filter:brightness(1)}15%{transform:scale(1.28);filter:brightness(3.2)}35%{transform:scale(.88);filter:brightness(1.6)}60%{transform:scale(1.08)}100%{transform:scale(1);filter:none}}
 .crash-fx .alring{position:absolute;width:60px;height:60px;margin:-30px;border:6px dashed var(--c);border-radius:22%;
   animation:alring .55s steps(7) forwards}
 @keyframes alring{0%{transform:scale(.6);opacity:1}100%{transform:scale(4.2);opacity:0}}
 body.calm .rocket.al.alpop .alb,body.calm .crash-fx .alring{animation:none}
+.sl-crash.alh{--g:#B57BFF;border-color:color-mix(in srgb,#B57BFF 60%,var(--line));background:#0C0A16;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),inset 0 0 40px rgba(139,77,240,.22)}
+.sl-crash.alh .sl-sky{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.sl-crash.alh .sl-sky .al-px.bp{width:78px;height:78px;left:auto;right:30%;top:-90px}
+.sl-crash.alh .sl-cv,.sl-crash.alh .sl-lbl,.sl-crash.alh .sl-live,.sl-crash.alh .sl-x,.sl-crash.alh .sl-sub,.sl-crash.alh .sl-go{z-index:3}
+.sl-crash.alh .sl-rk{z-index:2}
+.sl-rk.al .alg{position:absolute;inset:0;opacity:0;pointer-events:none;will-change:transform,opacity}
+.sl-crash[data-phase="fly"] .sl-rk.al .alg{animation:alecho .6s linear infinite}
+.sl-crash[data-phase="fly"] .sl-rk.al .e2{animation-delay:-.2s}
+.sl-crash[data-phase="fly"] .sl-rk.al .e3{animation-delay:-.4s}
+.sl-crash[data-phase="wait"] .sl-rk.al>span{animation:none}
+body.calm .sl-rk.al .alg{display:none}
+.sl-crash.alh .sl-x,.sl-crash.alh .sl-sub,.sl-crash.alh .sl-fx{display:none}
+.sl-crash.alh .sl-cv{opacity:0}   
+.sl-crash.alh.shock{animation:none}
+.sl-crash.alh .sl-rk{opacity:1!important}
+.sl-crash.alh .sl-rk.al>span{animation:none!important}
+.sl-crash.alh .sl-rk.al .alg{animation:alecho .6s linear infinite}
+.sl-crash.alh .sl-rk.al .e2{animation-delay:-.2s}
+.sl-crash.alh .sl-rk.al .e3{animation-delay:-.4s}
+.sl-crash.alh .al-px.red{display:none}
+.sl-tagx{position:absolute;left:14px;top:52px;z-index:3;font-family:Tiny5,var(--term),monospace;font-size:24px;line-height:1.05;letter-spacing:1px;
+  color:var(--g);text-shadow:0 0 14px color-mix(in srgb,var(--g) 55%,transparent)}
+body.calm .sl-crash.alh .sl-rk.al .alg{animation:none;display:none}
+.sl-crash.off .al-px,.sl-crash.off .alg{animation-play-state:paused!important}
+.crash-box.alm .rocket.al{will-change:left,top}
 .coin-stage.wait .coin-tilt{animation:coinWait .35s ease-in-out infinite alternate}
 @keyframes coinWait{to{transform:translateY(-8px)}}
 body.calm .coin-stage.wait .coin-tilt{animation:none}
