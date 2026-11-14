@@ -1530,6 +1530,21 @@ body.calm .sl-crash.alh .sl-rk.al .alg{animation:none;display:none}
 #s-topup .tp-quick button{border-radius:14px;background:color-mix(in srgb,var(--txt) 6%,var(--bg1))}
 #s-topup .tp-quick button:active{border-color:var(--tpc)}
 #s-topup .dock .btn.big{--c:var(--tpc);color:var(--tpt);text-shadow:none}
+#s-topup .tp-tabs{overflow:hidden;justify-content:space-between;gap:4px}
+#s-topup .tp-tabs span{flex:1 1 auto;min-width:0;padding:0 10px;gap:6px;font-size:12px;letter-spacing:.3px;justify-content:center}
+#s-topup .tp-tabs span[data-tp="crypto"]{flex-grow:1.6}
+#s-topup .tp-stage{position:relative;justify-content:center;gap:0;
+  background:radial-gradient(closest-side at 50% 50%,color-mix(in srgb,var(--tpc) 20%,transparent),color-mix(in srgb,var(--tpc) 6%,transparent) 55%,transparent 100%)}
+#s-topup .tp-step{display:none}
+#s-topup .tp-row{gap:0}
+#s-topup .tp-amt{gap:12px;padding:6px 4px}
+#s-topup .tp-amt input{text-shadow:none;background:transparent!important;box-shadow:none!important;border:0!important;outline:0;-webkit-appearance:none;appearance:none;
+  caret-color:var(--tpc);text-align:center;border-radius:0}
+#s-topup .tp-amt .cur-star{filter:none}
+#s-topup .tp-wallet{height:36px;margin-bottom:18px}
+#s-topup .tp-wallet.off{visibility:hidden;pointer-events:none}
+#s-topup .tp-sub{height:44px;margin-top:16px;justify-content:flex-start;gap:6px}
+#s-topup .tp-sub span{white-space:nowrap}
 .coin-stage.wait .coin-tilt{animation:coinWait .35s ease-in-out infinite alternate}
 @keyframes coinWait{to{transform:translateY(-8px)}}
 body.calm .coin-stage.wait .coin-tilt{animation:none}
