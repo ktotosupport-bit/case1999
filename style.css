@@ -1604,6 +1604,19 @@ html body[data-theme="lux"]{--bg0:#0C0905;--bg1:#18120A;--bg2:#241B10;--line:#4A
 #s-topup .tp-tabs span{flex-shrink:0;min-height:44px}
 body.typing #s-topup .tp-stage{flex:1 1 auto;min-height:0;overflow:visible}
 .crash-box.alm .crash-sky i{top:-28px!important}
+:root{--chp:polygon(var(--ch,8px) 0,calc(100% - var(--ch,8px)) 0,100% var(--ch,8px),100% calc(100% - var(--ch,8px)),calc(100% - var(--ch,8px)) 100%,var(--ch,8px) 100%,0 calc(100% - var(--ch,8px)),0 var(--ch,8px))}
+@property --ch{syntax:'<length>';inherits:false;initial-value:8px}
+.pxf{border-radius:0!important;clip-path:polygon(var(--ch,8px) 0,calc(100% - var(--ch,8px)) 0,100% var(--ch,8px),100% calc(100% - var(--ch,8px)),calc(100% - var(--ch,8px)) 100%,var(--ch,8px) 100%,0 calc(100% - var(--ch,8px)),0 var(--ch,8px))}
+.pxf:not(.btn){box-shadow:none!important}
+.pxf.btn{clip-path:polygon(var(--ch,8px) 0,calc(100% - var(--ch,8px)) 0,100% var(--ch,8px),100% calc(100% + var(--h,5px) - var(--ch,8px)),calc(100% - var(--ch,8px)) calc(100% + var(--h,5px)),var(--ch,8px) calc(100% + var(--h,5px)),0 calc(100% + var(--h,5px) - var(--ch,8px)),0 var(--ch,8px))}
+.panel,.slide,.crash-bets,.modal-box,.coin-stage,.up-stage,.tower,.grid5,.nav,.tile,.mode,.case,.sheet-box,.toast{--ch:11px}
+.hist span,.badge,.sl-tag,.t-badge,.risk,.plus,.code span,.live-item,.promo-dots i,.bag-n,.rank,.chip{--ch:5px}
+.sheet-box{clip-path:polygon(var(--ch) 0,calc(100% - var(--ch)) 0,100% var(--ch),100% 100%,0 100%,0 var(--ch))!important}
+#s-home .tile .t-badge{top:5px!important;right:12px!important}
+.hist span{border-width:2px!important;padding:3px 10px!important;background:color-mix(in srgb,var(--acc) 6%,var(--bg1))!important}
+.hist span:first-child{border-color:var(--acc)!important;color:var(--acc-hi)!important;background:color-mix(in srgb,var(--acc) 14%,var(--bg1))!important}
+.hist span.lo:first-child{border-color:var(--bad)!important;color:var(--bad)!important;background:color-mix(in srgb,var(--bad) 12%,var(--bg1))!important}
+.bal.demo .bal-ico,.bal.demo #balance{display:none!important}
 .coin-stage.wait .coin-tilt{animation:coinWait .35s ease-in-out infinite alternate}
 @keyframes coinWait{to{transform:translateY(-8px)}}
 body.calm .coin-stage.wait .coin-tilt{animation:none}
