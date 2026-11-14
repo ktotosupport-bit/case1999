@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://telegram.org">
 <link rel="preload" href="tiny5-cyr.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="jb-cyr.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="fonts.css?v=1219">
-<link rel="stylesheet" href="style.css?v=1219">
+<link rel="stylesheet" href="fonts.css?v=1220">
+<link rel="stylesheet" href="style.css?v=1220">
 <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
 </head>
 <body>
@@ -66,7 +66,7 @@
           <button class="slide sl-free sl-ticket" id="fcTicket">
             <span class="sl-tag">ЗА ДРУЗЕЙ</span>
             <b class="sl-name">КЕЙС<br>ДРУЗЕЙ</b>
-            <small class="sl-desc" id="fcTkInfo">тикетов: 0 из 5</small>
+            <small class="sl-desc" id="fcTkInfo">билетов: 0 из 5</small>
             <span class="sl-buy" id="fcTkBtn">ОТКРЫТЬ ▶</span>
             <span class="sl-fan one"><span data-px="ticket"></span></span>
           </button>          <button class="slide sl-bonus" data-go="s-tasks">
@@ -157,6 +157,7 @@
       <h1 class="title">&gt; КЕЙСЫ</h1>
       
       <div id="caseList">
+        <div class="case-wallet"><span class="cw"><i class="cur-star"></i><b id="cwStars">0</b><small>ЗВЁЗДЫ</small></span><span class="cw"><span class="cw-ico" data-px="ticket"></span><b id="cwTk">0 / 5</b><small>БИЛЕТЫ</small></span></div>
         <div class="case-hint">ВЫБЕРИ КЕЙС</div>
         <div class="cases" id="cases"></div>
       </div>
@@ -264,7 +265,7 @@
         <button class="btn sm" id="adBtn">СМОТРЕТЬ</button>
       </div>
       <div class="panel task">
-        <div><b>ПРИГЛАСИТЬ ДРУГА</b><small>+1 тикет за друга</small></div>
+        <div><b>ПРИГЛАСИТЬ ДРУГА</b><small>+1 билет за друга</small></div>
         <button class="btn sm" id="refBtn">ССЫЛКА</button>
       </div>
       <h2 class="q-head">&gt; ЗАДАНИЯ <small id="qCount"></small></h2>
@@ -436,7 +437,7 @@
 <div id="boot"><pre id="bootTxt"></pre></div>
 
 <div class="toast" id="toast"></div>
-<script src="icons.js?v=1219" defer></script>
-<script src="app.js?v=1219" defer></script>
+<script src="icons.js?v=1220" defer></script>
+<script src="app.js?v=1220" defer></script>
 </body>
 </html>

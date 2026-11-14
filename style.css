@@ -1609,9 +1609,17 @@ body.typing #s-topup .tp-stage{flex:1 1 auto;min-height:0;overflow:visible}
 .pxf{border-radius:0!important;clip-path:polygon(var(--ch,8px) 0,calc(100% - var(--ch,8px)) 0,100% var(--ch,8px),100% calc(100% - var(--ch,8px)),calc(100% - var(--ch,8px)) 100%,var(--ch,8px) 100%,0 calc(100% - var(--ch,8px)),0 var(--ch,8px))}
 .pxf:not(.btn){box-shadow:none!important}
 .pxf.btn{clip-path:polygon(var(--ch,8px) 0,calc(100% - var(--ch,8px)) 0,100% var(--ch,8px),100% calc(100% + var(--h,5px) - var(--ch,8px)),calc(100% - var(--ch,8px)) calc(100% + var(--h,5px)),var(--ch,8px) calc(100% + var(--h,5px)),0 calc(100% + var(--h,5px) - var(--ch,8px)),0 var(--ch,8px))}
-.panel,.slide,.crash-bets,.modal-box,.coin-stage,.up-stage,.tower,.grid5,.nav,.tile,.mode,.case,.sheet-box,.toast{--ch:11px}
-.hist span,.badge,.sl-tag,.t-badge,.risk,.plus,.code span,.live-item,.promo-dots i,.bag-n,.rank,.chip{--ch:5px}
+.panel,.slide,.crash-bets,.modal-box,.coin-stage,.up-stage,.tower,.grid5,.nav,.tile,.mode,.case,.sheet-box,.toast{--ch:12px}
+.hist span,.badge,.sl-tag,.t-badge,.risk,.plus,.code span,.live-item,.promo-dots i,.bag-n,.rank,.chip{--ch:6px}
 .sheet-box{clip-path:polygon(var(--ch) 0,calc(100% - var(--ch)) 0,100% var(--ch),100% 100%,0 100%,0 var(--ch))!important}
+.promo,.trow,.cb-ava,#s-profile svg{border-radius:0!important}
+.case-wallet{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:2px 0 10px}
+.case-wallet .cw{display:flex;align-items:center;gap:7px;padding:9px 11px;border:1px solid color-mix(in srgb,var(--g,var(--acc)) 55%,transparent);background:color-mix(in srgb,var(--g,var(--acc)) 7%,var(--bg1));--ch:8px;min-width:0}
+.case-wallet .cw b{font-size:14px;color:var(--fg,#fff);white-space:nowrap}
+.case-wallet .cw small{margin-left:auto;font-size:9px;opacity:.6;letter-spacing:.06em}
+.case-wallet .cur-star{width:18px;height:18px;flex:none}
+.case-wallet .cw-ico{width:20px;height:20px;flex:none;display:grid;place-items:center}
+.case-wallet .cw-ico svg{width:20px;height:20px}
 #s-home .tile .t-badge{top:5px!important;right:12px!important}
 .hist span{border-width:2px!important;padding:3px 10px!important;background:color-mix(in srgb,var(--acc) 6%,var(--bg1))!important}
 .hist span:first-child{border-color:var(--acc)!important;color:var(--acc-hi)!important;background:color-mix(in srgb,var(--acc) 14%,var(--bg1))!important}
