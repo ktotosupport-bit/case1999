@@ -1611,7 +1611,7 @@ body.typing #s-topup .tp-stage{flex:1 1 auto;min-height:0;overflow:visible}
 .pxf.btn{clip-path:polygon(var(--ch,8px) 0,calc(100% - var(--ch,8px)) 0,100% var(--ch,8px),100% calc(100% + var(--h,5px) - var(--ch,8px)),calc(100% - var(--ch,8px)) calc(100% + var(--h,5px)),var(--ch,8px) calc(100% + var(--h,5px)),0 calc(100% + var(--h,5px) - var(--ch,8px)),0 var(--ch,8px))}
 .panel,.slide,.crash-bets,.modal-box,.coin-stage,.up-stage,.tower,.grid5,.nav,.tile,.mode,.case,.sheet-box,.toast{--ch:12px}
 .hist span,.badge,.sl-tag,.t-badge,.risk,.plus,.code span,.live-item,.promo-dots i,.bag-n,.rank,.chip{--ch:6px}
-.sheet-box{clip-path:polygon(var(--ch) 0,calc(100% - var(--ch)) 0,100% var(--ch),100% 100%,0 100%,0 var(--ch))!important}
+.sheet-box{clip-path:polygon(var(--ch) 0,calc(100% - var(--ch)) 0,100% var(--ch),100% 100%,0 100%,0 var(--ch))}
 .promo,.trow,.cb-ava,#s-profile svg{border-radius:0!important}
 .case-wallet{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:2px 0 10px}
 .case-wallet .cw{display:flex;align-items:center;gap:7px;padding:9px 11px;border:1px solid color-mix(in srgb,var(--g,var(--acc)) 55%,transparent);background:color-mix(in srgb,var(--g,var(--acc)) 7%,var(--bg1));--ch:8px;min-width:0}
@@ -1620,6 +1620,11 @@ body.typing #s-topup .tp-stage{flex:1 1 auto;min-height:0;overflow:visible}
 .case-wallet .cur-star{width:18px;height:18px;flex:none}
 .case-wallet .cw-ico{width:20px;height:20px;flex:none;display:grid;place-items:center}
 .case-wallet .cw-ico svg{width:20px;height:20px}
+.seg button:not(.sel),.sub-seg button:not(.sel),.coin-pick button:not(.sel),.cb-auto .ca-x button:not(.on),.ac-quick button:not(.on){opacity:.62}
+html body .seg button.sel,html body .screen.game .seg button.sel,html body .sub-seg button.sel,html body .coin-pick button.sel,html body .cb-auto .ca-x button.on,html body .ac-quick button.on{
+  background:var(--g,var(--acc))!important;border-color:color-mix(in srgb,var(--g,var(--acc)) 70%,#fff)!important;color:var(--ink,#0b0f0c)!important;opacity:1!important;font-weight:700}
+html body .sub-seg button.sel small{color:inherit!important;opacity:.75}
+.coin-pick button.sel{background:var(--cg,var(--acc))!important;border-color:var(--cg,var(--acc))!important}
 #s-home .tile .t-badge{top:5px!important;right:12px!important}
 .hist span{border-width:2px!important;padding:3px 10px!important;background:color-mix(in srgb,var(--acc) 6%,var(--bg1))!important}
 .hist span:first-child{border-color:var(--acc)!important;color:var(--acc-hi)!important;background:color-mix(in srgb,var(--acc) 14%,var(--bg1))!important}
