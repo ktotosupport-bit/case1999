@@ -1317,6 +1317,15 @@ body{background-color:var(--bg0)!important;
 .btn.ghost-sm:disabled{color:var(--dim)!important;border-color:var(--line)!important}
 .sheet > *{max-height:calc(100dvh - 12px - var(--tg-safe-area-inset-top,0px) - var(--tg-content-safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
 .task > .btn.sm{min-width:100px;flex-shrink:0;justify-content:center;text-align:center}
+#caseList .cases{grid-template-columns:repeat(2,minmax(0,1fr))}   
+#caseList .cases .case{min-width:0}
+#caseList .cases .case.cs-free{--rc:var(--acc);border-style:dashed}
+#caseList .cases .case.cs-free .crow small{color:var(--acc);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#caseList .cases .case.cs-free .risk{color:var(--dim);border-color:var(--line);white-space:nowrap}
+@media (max-width:360px){#caseList .cases .case.cs-free .crow small{display:none}#caseList .cases .case.cs-free .crow{justify-content:flex-start}}
+#caseList .cases .case.cs-free.ready{border-style:solid;border-color:var(--acc);box-shadow:0 0 12px color-mix(in srgb,var(--acc) 30%,transparent)}
+#caseList .cases .case.cs-free.ready .risk{color:var(--ink);background:var(--acc);border-color:var(--acc)}
+#caseList .cases .case.cs-free.ready .cfan span{animation:bob 1.2s steps(2) infinite}
 .streak{display:flex;gap:4px;margin-top:8px}
 .task > div:first-child{min-width:0}
 .streak i{flex:1 1 0;min-width:0;max-width:26px;height:22px;border:1px solid var(--line);background:var(--bg0);display:flex;align-items:center;justify-content:center;font-style:normal}
