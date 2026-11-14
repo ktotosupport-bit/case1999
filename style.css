@@ -1317,6 +1317,9 @@ body{background-color:var(--bg0)!important;
 .btn.ghost-sm:disabled{color:var(--dim)!important;border-color:var(--line)!important}
 .sheet > *{max-height:calc(100dvh - 12px - var(--tg-safe-area-inset-top,0px) - var(--tg-content-safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
 .task > .btn.sm{min-width:100px;flex-shrink:0;justify-content:center;text-align:center}
+.coin-stage.wait .coin-tilt{animation:coinWait .35s ease-in-out infinite alternate}
+@keyframes coinWait{to{transform:translateY(-8px)}}
+body.calm .coin-stage.wait .coin-tilt{animation:none}
 #caseList .cases{grid-template-columns:repeat(2,minmax(0,1fr))}   
 #caseList .cases .case{min-width:0}
 #caseList .cases .case.cs-free{--rc:var(--acc);border-style:dashed}
