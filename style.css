@@ -1753,3 +1753,5 @@ html body .ava .ava-svg,html body .ava img{border-radius:0!important}
 .live-gap{flex:none;height:1px}
 #live{position:relative}
 #live.empty::after{content:'ВЫИГРЫШИ ИГРОКОВ ПОЯВЯТСЯ ЗДЕСЬ';position:absolute;inset:0;display:flex;align-items:center;padding-left:12px;font-family:var(--term);font-size:13px;color:var(--dim);letter-spacing:.04em;white-space:nowrap;overflow:hidden;pointer-events:none}
+html body .live-item.odds{color:var(--dim)}
+html body .live-item.real{color:var(--acc);border-color:color-mix(in srgb,var(--acc) 55%,var(--line))!important}
