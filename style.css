@@ -1748,3 +1748,8 @@ html body[data-mode="s-pvp"]{--g:var(--g-pvp);--g2:#B76BFF}
 html body[data-theme][data-mode]{--acc:var(--g);--acc-hi:color-mix(in srgb,var(--g) 50%,#fff);--ink:color-mix(in srgb,var(--g) 14%,#000);--line-hi:var(--g)}
 html body .ms-bal,html body .ms-cnt,html body .tp-step,html body .tut-box,html body .tut-hole,html body .demo-tag,html body .live-tag,
 html body .streak i,html body .q-bar,html body .pvp-bar,html body .crash-bar,html body .tgl i,html body .ca-tog i,html body .promo-dots i{border-radius:0!important}
+html body .pxf,html body .pxf::before,html body .pxf::after{border-radius:0!important}
+html body .ava .ava-svg,html body .ava img{border-radius:0!important}
+.live-gap{flex:none;height:1px}
+#live{position:relative}
+#live.empty::after{content:'ВЫИГРЫШИ ИГРОКОВ ПОЯВЯТСЯ ЗДЕСЬ';position:absolute;inset:0;display:flex;align-items:center;padding-left:12px;font-family:var(--term);font-size:13px;color:var(--dim);letter-spacing:.04em;white-space:nowrap;overflow:hidden;pointer-events:none}
