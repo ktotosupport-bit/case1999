@@ -1625,6 +1625,20 @@ html body .seg button.sel,html body .screen.game .seg button.sel,html body .sub-
   background:var(--g,var(--acc))!important;border-color:color-mix(in srgb,var(--g,var(--acc)) 70%,#fff)!important;color:var(--ink,#0b0f0c)!important;opacity:1!important;font-weight:700}
 html body .sub-seg button.sel small{color:inherit!important;opacity:.75}
 .coin-pick button.sel{background:var(--cg,var(--acc))!important;border-color:var(--cg,var(--acc))!important}
+.ava .ava-svg{border-radius:0!important}
+.cb-ava{width:24px!important;height:24px!important}
+#crashSky .al-px.bp{display:none}
+.al-gifts{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.al-gf{position:absolute;top:-110px;width:92px;margin-left:-46px;display:flex;flex-direction:column;align-items:center;gap:3px;animation-name:algf;animation-timing-function:linear;animation-fill-mode:forwards;will-change:transform;opacity:.92}
+.al-gf .al-gi{display:block;width:84px;height:84px;filter:drop-shadow(0 3px 0 rgba(0,0,0,.45))}
+.al-gf .al-gi svg,.al-gf .al-gi img{width:100%;height:100%;display:block;image-rendering:pixelated}
+.al-gf b{display:flex;align-items:center;gap:2px;font-size:10px;line-height:1;color:#fff;white-space:nowrap;padding:3px 6px;background:rgba(12,6,26,.78);border:1px solid color-mix(in srgb,#B57BFF 70%,transparent);clip-path:polygon(4px 0,calc(100% - 4px) 0,100% 4px,100% calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,0 calc(100% - 4px),0 4px)}
+.al-gf[data-r="rare"] b{border-color:#5CC8FF}.al-gf[data-r="epic"] b{border-color:#C77BFF}.al-gf[data-r="leg"] b{border-color:#FFC93D;color:#FFE59A}
+.al-gf.st .al-gi{width:40px;height:40px}.al-gf.st .cur-star{width:100%;height:100%;margin:0;display:block}
+.al-gf b .cur-star{width:11px;height:11px;margin:0}
+@keyframes algf{to{transform:translateY(calc(var(--fall,440px) + 160px))}}
+.crash-box[data-phase="crashed"] .al-gf{animation-play-state:paused;opacity:0;transition:opacity .45s}
+body.calm .al-gifts{display:none}
 #s-home .tile .t-badge{top:5px!important;right:12px!important}
 .hist span{border-width:2px!important;padding:3px 10px!important;background:color-mix(in srgb,var(--acc) 6%,var(--bg1))!important}
 .hist span:first-child{border-color:var(--acc)!important;color:var(--acc-hi)!important;background:color-mix(in srgb,var(--acc) 14%,var(--bg1))!important}
