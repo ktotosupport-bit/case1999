@@ -1680,8 +1680,8 @@ body.calm .al-gifts{display:none}
 body{font-weight:400}
 html body .chip.demo-chip.on{background:linear-gradient(#FFE58A 0 3px,#FFC93D 3px calc(100% - 3px),#D99A1E calc(100% - 3px))!important;color:#2A1A00!important;border-color:#FFF0B8!important;text-shadow:none!important;font-weight:700}
 html body .bal .plus{width:28px;height:28px;padding:0;display:grid;place-items:center;border:0;color:#fff;cursor:pointer;
-  background:linear-gradient(#B8FFCC 0 3px,#4DFF80 3px 55%,#25D45C 55% calc(100% - 4px),#12863A calc(100% - 4px))!important;
-  filter:drop-shadow(0 0 6px color-mix(in srgb,#39FF6E 55%,transparent));transition:transform .08s}
+  background:linear-gradient(color-mix(in srgb,var(--acc) 45%,#fff) 0 3px,var(--acc) 3px 55%,color-mix(in srgb,var(--acc) 82%,#000) 55% calc(100% - 4px),color-mix(in srgb,var(--acc) 45%,#000) calc(100% - 4px))!important;
+  color:var(--ink);filter:drop-shadow(0 0 6px color-mix(in srgb,var(--acc) 55%,transparent));transition:transform .08s}
 html body .bal .plus svg{width:18px;height:18px;display:block;image-rendering:pixelated}
 html body .bal:active .plus{transform:translateY(1px) scale(.94)}
 .tile.soon .t-ico,.tile.soon b,.tile.soon small{opacity:.45;filter:grayscale(.6)}
@@ -1737,3 +1737,14 @@ body.calm .coin-stage.wait .coin-tilt{animation:none}
 body.calm .q-row > .btn.go{animation:none}
 html body #caseList .cases .case.cs-free .crow small{font-size:12px;letter-spacing:0}html body #caseList .cases .case.cs-free .risk{font-size:11px;padding-left:4px;padding-right:4px}
 html body .pvp-list li.pvp-empty{display:block;text-align:center;color:var(--dim);font-size:13px;line-height:1.35;padding:14px 10px;border-style:dashed}
+html body[data-mode="s-crash"]{--g:#B57BFF;--g2:#FF4F8E}
+html body[data-mode="s-mines"]{--g:var(--g-mines);--g2:#2FD6FF}
+html body[data-mode="s-disks"]{--g:var(--g-disks);--g2:#7B6BFF}
+html body[data-mode="s-roulette"]{--g:var(--g-cases);--g2:#FF7A2E}
+html body[data-mode="s-coin"]{--g:var(--g-coin);--g2:#FFD84A}
+html body[data-mode="s-upgrade"]{--g:var(--g-up);--g2:#FF4F8E}
+html body[data-mode="s-hack"]{--g:var(--g-hack);--g2:#2FD6FF}
+html body[data-mode="s-pvp"]{--g:var(--g-pvp);--g2:#B76BFF}
+html body[data-theme][data-mode]{--acc:var(--g);--acc-hi:color-mix(in srgb,var(--g) 50%,#fff);--ink:color-mix(in srgb,var(--g) 14%,#000);--line-hi:var(--g)}
+html body .ms-bal,html body .ms-cnt,html body .tp-step,html body .tut-box,html body .tut-hole,html body .demo-tag,html body .live-tag,
+html body .streak i,html body .q-bar,html body .pvp-bar,html body .crash-bar,html body .tgl i,html body .ca-tog i,html body .promo-dots i{border-radius:0!important}
