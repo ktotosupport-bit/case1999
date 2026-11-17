@@ -1295,6 +1295,7 @@ body{background-color:var(--bg0)!important;
 .reel{height:calc(var(--slot,90px) * 3)!important}
 .reels .slot{height:var(--slot,90px)!important}
 #caseView #spinBtn{position:relative!important;bottom:auto!important}
+#caseView > #caseSkip{margin-top:auto!important;position:relative!important;bottom:auto!important}
 #s-crash.active{container-type:size}
 #s-crash .crash-box{height:min(260px,max(150px,calc(100cqh - 330px)))!important}
 #s-crash .crash-bets{min-height:84px}
