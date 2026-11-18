@@ -1883,3 +1883,7 @@ html body .egg-row.tri .egg.open{width:112px;height:140px}
 @keyframes shellL{from{opacity:1;transform:translate(26px,-40px) rotate(0)}to{opacity:.9;transform:rotate(-24deg)}}
 @keyframes shellR{from{opacity:1;transform:translate(-26px,-40px) rotate(0)}to{opacity:.9;transform:rotate(24deg)}}
 .egg.open.other{opacity:.85}
+.egg-could{grid-column:1 / -1;display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px}
+.egg-could small{font-family:var(--pix);font-size:11px;color:var(--dim);letter-spacing:1px}
+.egg-could span{display:flex;gap:8px}
+.egg-could em{width:36px;height:36px;display:block}
