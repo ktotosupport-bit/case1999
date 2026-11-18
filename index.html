@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://telegram.org">
 <link rel="preload" href="tiny5-cyr.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="jb-cyr.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="fonts.css?v=1249">
-<link rel="stylesheet" href="style.css?v=1249">
+<link rel="stylesheet" href="fonts.css?v=1250">
+<link rel="stylesheet" href="style.css?v=1250">
 <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
 </head>
 <body>
@@ -178,6 +178,7 @@
         </div>
         <button class="btn big" id="spinBtn">ОТКРЫТЬ ЗА <span id="spinCost">100</span> ◆</button>
         <button class="btn big hidden" id="caseSkip">ПРОПУСТИТЬ »</button>
+        <div class="case-items" id="caseItems"></div>
       </div>
     </section>
 
@@ -318,6 +319,23 @@
         <div><b id="pGames">0</b><small>ИГР</small></div>
       </div>
 
+      <h2 class="sub">ДРУЗЬЯ</h2>
+      <div class="panel ref-box">
+        <div class="ref-stats">
+          <div><b id="refN">0</b><small>ДРУЗЕЙ</small></div>
+          <div><b id="refTk">0</b><small>БИЛЕТОВ</small></div>
+        </div>
+        <button class="ref-link" id="refCopy" aria-label="Скопировать ссылку"><span id="refUrl">t.me/Case_1999_bot</span><i>КОПИРОВАТЬ</i></button>
+        <button class="btn sm" id="refShare">ПРИГЛАСИТЬ ДРУГА</button>
+        <small class="ref-hint">За каждого друга — билет. 5 билетов — бесплатный кейс друзей.</small>
+      </div>
+
+      <h2 class="sub">ПРОМОКОД</h2>
+      <div class="panel promo-box">
+        <input id="promoIn" maxlength="24" placeholder="ВВЕДИ КОД" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Промокод">
+        <button class="btn sm" id="promoGo">ОК</button>
+      </div>
+
       <h2 class="sub">ПОРТФЕЛЬ</h2>
       <div class="panel bag">
         <div class="bag-head">
@@ -439,7 +457,7 @@
 <div id="boot"><pre id="bootTxt"></pre></div>
 
 <div class="toast" id="toast"></div>
-<script src="icons.js?v=1249" defer></script>
-<script src="app.js?v=1249" defer></script>
+<script src="icons.js?v=1250" defer></script>
+<script src="app.js?v=1250" defer></script>
 </body>
 </html>
