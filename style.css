@@ -1887,3 +1887,19 @@ html body .egg-row.tri .egg.open{width:112px;height:140px}
 .egg-could small{font-family:var(--pix);font-size:11px;color:var(--dim);letter-spacing:1px}
 .egg-could span{display:flex;gap:8px}
 .egg-could em{width:36px;height:36px;display:block}
+html body #s-home .modes.tiles{display:flex;flex-direction:column;gap:8px;flex:none;grid-auto-rows:auto}
+html body #s-home .modes.tiles .tile{container-type:normal;height:68px;min-height:0;flex:none;
+  display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto;align-items:center;column-gap:14px;row-gap:3px;
+  padding:0 14px 0 10px;text-align:left;
+  border-width:2px!important;border-color:color-mix(in srgb,var(--g) 55%,var(--line))!important;
+  background:
+    linear-gradient(90deg,color-mix(in srgb,var(--g) 42%,var(--bg1)) 0%,color-mix(in srgb,var(--g) 18%,var(--bg1)) 55%,color-mix(in srgb,var(--g) 8%,var(--bg1)) 100%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 4px 0 rgba(0,0,0,.35)!important}
+html body #s-home .modes.tiles .tile .t-ico{grid-row:1 / 3;width:48px!important;height:48px!important;padding:4px;box-sizing:content-box;
+  background:color-mix(in srgb,var(--g) 22%,rgba(0,0,0,.35));border-radius:8px;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--g) 55%,transparent))}
+html body #s-home .modes.tiles .tile b{grid-column:2;align-self:end;font-size:18px!important;letter-spacing:1px;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.45)!important}
+html body #s-home .modes.tiles .tile small{grid-column:2;align-self:start;font-size:12px!important;color:color-mix(in srgb,var(--g) 30%,#E6EEE9)!important;max-width:100%!important}
+html body #s-home .modes.tiles .tile .t-badge{position:static;grid-column:3;grid-row:1 / 3;align-self:center;font-size:10px;padding:4px 7px}
+html body #s-home .modes.tiles .tile::after{content:"›";grid-column:3;grid-row:1 / 3;align-self:center;justify-self:end;font-family:var(--pix);font-size:22px;color:color-mix(in srgb,var(--g) 60%,#fff);opacity:.8}
+html body #s-home .modes.tiles .tile:has(.t-badge)::after{display:none}
+html body #s-home .modes.tiles .tile:active{transform:translateY(3px)}
