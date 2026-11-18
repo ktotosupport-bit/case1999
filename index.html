@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://telegram.org">
 <link rel="preload" href="tiny5-cyr.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="jb-cyr.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="fonts.css?v=1251">
-<link rel="stylesheet" href="style.css?v=1251">
+<link rel="stylesheet" href="fonts.css?v=1252">
+<link rel="stylesheet" href="style.css?v=1252">
 <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
 </head>
 <body>
@@ -86,7 +86,7 @@
         </div>
         <div class="promo-dots" id="promoDots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
       </div>
-      <div class="sec-h">ИГРЫ <b>8 РЕЖИМОВ</b></div>
+      <div class="sec-h">ИГРЫ <b>9 РЕЖИМОВ</b></div>
       <div class="modes tiles">
         <button class="tile" style="--g:var(--g-cases)" data-go="s-roulette"><span class="t-ico" data-px="cdrom"></span><b>КЕЙСЫ</b><small>ВЫБЕЙ ПОДАРОК</small></button>
         <button class="tile" style="--g:var(--g-crash)" data-go="s-crash"><i class="t-badge on">LIVE</i><span class="t-ico" data-px="crashwin"></span><b>КРАШ</b><small>УСПЕЙ ЗАБРАТЬ</small></button>
@@ -96,7 +96,24 @@
         <button class="tile" style="--g:var(--g-disks)" data-go="s-disks"><span class="t-ico" data-px="floppy"></span><b>ДИСКЕТЫ</b><small>ЛЕЗЬ НАВЕРХ</small></button>
         <button class="tile" style="--g:var(--g-hack)" data-go="s-hack"><i class="t-badge">NEW</i><span class="t-ico" data-px="cmd"></span><b>ВЗЛОМ</b><small>БОЛЬШЕ / МЕНЬШЕ</small></button>
         <button class="tile" style="--g:var(--g-coin)" data-go="s-coin"><span class="t-ico" data-px="coin"></span><b>0 / 1</b><small>ОРЁЛ ИЛИ РЕШКА</small></button>
+        <button class="tile" style="--g:var(--g-eggs)" data-go="s-eggs"><i class="t-badge">NEW</i><span class="t-ico egg-ico"></span><b>ЯЙЦА</b><small>РАЗБЕЙ ОДНО</small></button>
         <button class="tile" style="--g:var(--g-bag)" data-go="s-profile" id="bagTile"><span class="t-ico" data-px="folder"></span><b>ПОРТФЕЛЬ</b><small id="bagTileInfo">0 ◆</small></button>
+      </div>
+    </section>
+
+    
+    <section class="screen game" id="s-eggs" data-game="eggs">
+      <div class="title-row"><h1 class="title">&gt; ЯЙЦА</h1></div>
+      <div class="egg-sets" id="eggSets"></div>
+      <div class="egg-stage hidden" id="eggStage">
+        <div class="case-head">
+          <button class="chip" id="eggBack">‹ НАБОРЫ</button>
+          <div class="case-name" id="eggName"></div>
+          <button class="chip prize-chip" id="eggPrizes">ПРИЗЫ</button>
+        </div>
+        <div class="egg-msg" id="eggMsg"></div>
+        <div class="egg-row" id="eggRow"></div>
+        <button class="btn big" id="eggBtn">РАЗБИТЬ</button>
       </div>
     </section>
 
@@ -270,6 +287,14 @@
         <div><b>ПРИГЛАСИТЬ ДРУГА</b><small>+1 билет за друга</small></div>
         <button class="btn sm" id="refBtn">ССЫЛКА</button>
       </div>
+      <div class="panel task">
+        <div><b>ИГРА НА РАБОЧИЙ СТОЛ</b><small>+25 ◆ · один раз</small></div>
+        <button class="btn sm" id="taskHome">ДОБАВИТЬ</button>
+      </div>
+      <div class="panel task">
+        <div><b>ИСТОРИЯ В TELEGRAM</b><small>+50 ◆ · один раз</small></div>
+        <button class="btn sm" id="taskStory">ВЫЛОЖИТЬ</button>
+      </div>
       <h2 class="q-head">&gt; ЗАДАНИЯ <small id="qCount"></small></h2>
       <div id="quests"></div>
     </section>
@@ -299,6 +324,7 @@
       <div class="seg" id="leadMode"><button data-v="top" class="sel">ТОП ИГРОКОВ</button><button data-v="tour">ТУРНИР</button></div>
       <div class="tour-info hidden" id="tourInfo"></div>
       <ol class="leaders" id="leaders"></ol>
+      <div class="lead-me hidden" id="leadMe"></div>
     </section>
 
     
@@ -321,13 +347,15 @@
 
       <h2 class="sub">ДРУЗЬЯ</h2>
       <div class="panel ref-box">
+        <div class="ref-pct"><b>10%</b><span>от каждого пополнения друга — тебе на баланс</span></div>
         <div class="ref-stats">
           <div><b id="refN">0</b><small>ДРУЗЕЙ</small></div>
           <div><b id="refTk">0</b><small>БИЛЕТОВ</small></div>
+          <div><b id="refE">0 ◆</b><small>ЗАРАБОТАНО</small></div>
         </div>
         <button class="ref-link" id="refCopy" aria-label="Скопировать ссылку"><span id="refUrl">t.me/Case_1999_bot</span><i>КОПИРОВАТЬ</i></button>
         <button class="btn sm" id="refShare">ПРИГЛАСИТЬ ДРУГА</button>
-        <small class="ref-hint">За каждого друга — билет. 5 билетов — бесплатный кейс друзей.</small>
+        <small class="ref-hint">За каждого друга — билет, 5 билетов — бесплатный кейс друзей. И 10% от всех его пополнений — навсегда.</small>
       </div>
 
       <h2 class="sub">ПРОМОКОД</h2>
@@ -457,7 +485,7 @@
 <div id="boot"><pre id="bootTxt"></pre></div>
 
 <div class="toast" id="toast"></div>
-<script src="icons.js?v=1251" defer></script>
-<script src="app.js?v=1251" defer></script>
+<script src="icons.js?v=1252" defer></script>
+<script src="app.js?v=1252" defer></script>
 </body>
 </html>
